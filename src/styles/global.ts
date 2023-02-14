@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
+
 
 export const GlobalStyle = createGlobalStyle`
     *{
@@ -49,5 +50,13 @@ export const GlobalStyle = createGlobalStyle`
             font-size: 93.75%; //15px
         }
     }
-
 `
+
+export const Container = styled.div`
+    color: red;
+`
+
+export const Content = styled.div`
+    color: red;
+`
+
