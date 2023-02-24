@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Image from "next/image"
-import logoImg from "../../public/logo/logo.svg";
+import logoImg from "../../public/logo/logo.png";
 import Input from "../components/ui/Input";
 import Button from "../components/ui/Button";
 export default function Home() {
@@ -9,13 +9,14 @@ export default function Home() {
         <>
             <Head> <title>Pops Pizza</title> </Head>
             <div className={styles.containerCenter}>
-                <Image src={logoImg} alt="logo" />
+                <Image className={styles.img} src={logoImg} alt="logo" />
                 <div className={styles.login}>
                     <form action="">
                         <Input placeholder="Digite seu email" type="text" />
                         <Input placeholder="Digite sua senha" type="password" />
-                        <Button type="submit" loading={false}>Entrar</Button>
+                        <Button type="submit" loading={false}>Acessar</Button>
                     </form>
+                    <a className={styles.text}>Não possui uma conta ? Cadastre-se</a>
                 </div>
             </div>
         </>
