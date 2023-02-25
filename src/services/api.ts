@@ -17,9 +17,9 @@ export function setupApiClient(ctx = undefined) {
         return response;
     }, (error:AxiosError) => {
         if(error.response.status === 401) {
-            // Erro não autorizado
+            // unauthorized error
             if(typeof window !== undefined) {
-                // Chamar função para deslogar o usuario 
+                // Call function to logout the user
                 signOut();
             } else {
                 return Promise.reject(new AuthTokenError())
