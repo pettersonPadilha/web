@@ -1,3 +1,4 @@
+import {useState, FormEvent} from "react"
 import Head from "next/head";
 import styles from "../../styles/Home.module.scss";
 import Image from "next/image"
@@ -7,6 +8,24 @@ import Button from "../../components/ui/Button";
 import Input from "../../components/ui/Input";
 
 export default function SignUp() {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    async function handleSignUp(event:FormEvent) {
+        event.preventDefault();
+
+        if(name === "" || email === "" || password === "") {
+            alert("prenecha todos os campos ")
+            return;
+        }
+
+        setLoading(true)
+
+    }
+
+
     return (
         <>
             <Head> <title>Faça seu cadastro</title> </Head>
@@ -14,11 +33,11 @@ export default function SignUp() {
                 <Image className={styles.img} src={logoImg} alt="logo" />
                 <div className={styles.login}>
                     <h1>Criando sua conta</h1>
-                    <form action="">
-                        <Input placeholder="Digite seu nome" type="text" />
-                        <Input placeholder="Digite seu email" type="email" />
-                        <Input placeholder="Digite sua senha" type="password" />
-                        <Button type="submit" loading={false}>Cadastrar</Button>
+                    <form action="" onSubmit={handleSignUp}>
+                        <Input placeholder="Digite seu nome" type="text" value={name} onChange={(e) => setName(e.target.value)}/>
+                        <Input placeholder="Digite seu email" type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        <Input placeholder="Digite sua senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <Button type="submit" loading={loading}>Cadastrar</Button>
                     </form>
                     <Link href="/" className={styles.text}> 
                         Já possui uma conta ? Faça o login
