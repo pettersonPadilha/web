@@ -7,6 +7,7 @@ import Input from "../components/ui/Input";
 import Button from "../components/ui/Button";
 import Link from "next/link";
 import {authContext} from "../contexts/AuthContext";
+import {toast} from "react-toastify"
 
 export default function Home() {
     const {signIn} = useContext(authContext);
@@ -18,7 +19,7 @@ export default function Home() {
     async function handleLogin(event: FormEvent) {
         event.preventDefault();
         if(email === "" || password === "") {
-            alert("preencha os dados!")
+            toast.warning("Preencha todos os campos")
             return;
         }
         setLoading(true)
