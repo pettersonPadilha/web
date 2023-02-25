@@ -8,6 +8,8 @@ import Button from "../../components/ui/Button";
 import Input from "../../components/ui/Input";
 import {authContext} from "../../contexts/AuthContext";
 import {toast} from "react-toastify"
+
+
 export default function SignUp() {
     const {signUp} = useContext(authContext);
     const [name, setName] = useState("");

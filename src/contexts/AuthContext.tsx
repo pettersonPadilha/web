@@ -48,6 +48,7 @@ export function AuthProvider({children}: AuthProviderProps) {
     const [user, setUser] = useState<UserProps>();
     const isAuthenticated = !!user;
 
+    {/* user login function*/}
    async  function signIn({email, password}:SignInProps) {
         try {
             const response = await api.post("/session", {
@@ -64,26 +65,26 @@ export function AuthProvider({children}: AuthProviderProps) {
             api.defaults.headers["Authorization"] = `Bearer ${token}`
 
 
-            toast.success("Logado com sucesso!")
+            toast.success("Login feito com sucesso!")
             // Se deu tudo certo redirect
             Router.push("/dashboard")
 
         }catch(err) {
-            toast.error("Error ao acessar!")
+            toast.error("Falha acessar usuário/senha inválidos!  ")
             console.log("error ao acessar", err)
         }
        
     }
-
+    {/* create user function */}
     async function signUp({name, email, password}:SignUpProps) {
             try{
                 const response = await api.post("/users", {
                     name,email,password
                 })
-                toast.success("Conta criada com sucesso!")
+                toast.success("Conta cadastrada com sucesso!")
                 Router.push("/");
             }catch(err) {
-                toast.error("Erro ao cadastrar!")
+                toast.error("Falha ao cadastrar!")
                 console.log("error ao cadastrar", err);
             }
     }
