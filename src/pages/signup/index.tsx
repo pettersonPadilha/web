@@ -2,7 +2,6 @@ import Head from "next/head";
 import styles from "../../styles/Home.module.scss";
 import Image from "next/image"
 import logoImg from "../../../public/logo/logo.png";
-
 import Link from "next/link";
 import Button from "../../components/ui/Button";
 import Input from "../../components/ui/Input";
